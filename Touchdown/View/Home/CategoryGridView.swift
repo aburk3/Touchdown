@@ -15,8 +15,11 @@ struct CategoryGridView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHGrid(rows: gridLayout, alignment: .center, spacing:
-                        columnSpacing, pinnedViews: [], content: {
-                Section(header: Text("HEADER"), footer: Text("FOOTER")) {
+                columnSpacing, pinnedViews: [], content: {
+                Section(
+                    header: SectionView(rotateClockwise: false),
+                    footer: SectionView(rotateClockwise: true)
+                ) {
                     ForEach(categories) { category in
                         CategoryItemView(category: category)
                     }
@@ -34,7 +37,7 @@ struct CategoryGridView: View {
 struct CategoryGridView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryGridView()
-            .previewLayout(.sizeThatFits)
+            .previewLayout(.device)
             .padding()
             .background(colorBackground)
     }
