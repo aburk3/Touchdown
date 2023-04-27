@@ -40,7 +40,7 @@ struct ContentView: View {
             .background(colorBackground.ignoresSafeArea(.all, edges: .all))
         } //: ZSTACK
         .ignoresSafeArea(.all, edges: .top)
-    }
+    } //: BODY
 }
 
 struct ContentView_Previews: PreviewProvider {
